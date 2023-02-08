@@ -37,7 +37,7 @@
 import SearchInput from '@/components/SearchInput.vue';
 import TrendingMovie from '@/components/TrendingMovie.vue';
 import RecommendMovie  from '@/components/RecommendMovie.vue';
-//import { mapState } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
     name: 'HomeView',
@@ -53,27 +53,27 @@ export default {
     },
     methods: {
         ADD_IT() {
-            // const movieDetail = {
-            //     movieCategory: this.movie.category 
-            // };  
-            //this.$store.commit('ADD_TO_BOOKMARK',  movieDetail)
+            const movieDetail = {
+                movieCategory: this.movie.category 
+            };  
+            this.$store.commit('ADD_TO_BOOKMARK',  movieDetail)
         }
     },
     computed: {
-        // ...mapState({
-        //     movie: (state : any) => state.movie,
-        //      isBookmarked: (state : any) => state.isBookmarked,
-        // }),
+        ...mapState({
+            movie: state => state.movie,
+            isBookmarked: state  => state.isBookmarked,
+        }),
 
-        // movieList() {
-        //     return this.$store.state.movie;
-        //     //return JSON.parse(JSON.stringify(this.$store.state.movie))
-        // },
+        movieList() {
+            return this.$store.state.movie;
+            //return JSON.parse(JSON.stringify(this.movie))
+        },
 
     },
     mounted() {
-        //console.log(this.movieList);
-        // console.log(this.trendingList)
+        console.log(this.movieList);
+        console.log(this.trendingList)
     }
 };
 </script>

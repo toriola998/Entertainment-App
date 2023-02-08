@@ -21,7 +21,7 @@
 <script>
 import SearchInput from '@/components/SearchInput.vue';
 import RecommendMovie from '@/components/RecommendMovie.vue';
-//import { mapState } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
     name: 'AllMovies',
@@ -33,16 +33,16 @@ export default {
         
     },
     computed: {
-        // ...mapState({
-        //     movie: (state : any) => state.movie,
-        // }),
+        ...mapState({
+            movie: state => state.movie,
+        }),
 
-        // movieList() {
-        //     return JSON.parse(JSON.stringify(this.movie))
-        // },
+        movieList() {
+            return JSON.parse(JSON.stringify(this.movie))
+        },
     },
     mounted() {
-        //console.log(this.movieList)
+        console.log(this.movieList)
     }
 };
 </script>
