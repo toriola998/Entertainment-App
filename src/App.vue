@@ -1,7 +1,9 @@
 <template>
     <div class="home">
-        <TheNavBar></TheNavBar>
-        <router-view/>
+        <div>
+            <TheNavBar></TheNavBar>
+            <router-view/>
+        </div>
     </div>
 </template>
 
@@ -114,11 +116,14 @@
     }
 
     .home {
-        display: grid;
-        grid-template-columns: auto auto;
+        
         width: 100%;
-        max-width: 1400px;
-        margin: auto;
+        >div {
+            display: grid;
+            grid-template-columns: auto auto;
+            max-width: 1500px;
+            margin: auto;
+        }
     }
 
     article .movie {

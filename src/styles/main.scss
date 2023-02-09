@@ -73,20 +73,29 @@ h2, h3 {
 .recommended-movies {
     h2 { margin: 1.5rem 0;}
 
-    .inner-recomend {
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 1.5rem;
+    @media screen and (min-width: 700px){
+        .inner-recomend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: start;
+        }
+
+        >div>div{ width: 48%;}
+    }
+
+    @media screen and (min-width: 900px){  
+        >div>div{ width: 30%;} 
+    }
+
+    @media screen and (min-width: 1200px){  
+        >div>div{ width: 23%;} 
     }
 }
 
 @media screen and (min-width: 700px){
     .recommended-movies {
         h2 { margin: 2rem 0;}
-
-        .inner-recomend {
-            grid-template-columns: auto auto auto;
-        }
     }
 
     // h2, h3 {
@@ -99,23 +108,15 @@ h2, h3 {
 }
 
 @media screen and (min-width: 1024px){ 
-    .home > div {
-        display: grid;
-        grid-template-columns: auto auto;
-        width: 100%;
-        max-width: 1400px;
-        margin: auto;
-    }
+    // .home > div {
+    //     // display: grid;
+    //     // grid-template-columns: auto auto;
+    //     // width: 100%;
+    //     max-width: 1400px;
+    //     margin: auto;
+    // }
 
     .input-wrap input::placeholder {
         font-size: 1.2rem;
-    }
-}
-
-@media screen and (min-width: 1200px){ 
- .recommended-movies {
-        .inner-recomend {
-            grid-template-columns: auto auto auto auto;
-        }
     }
 }

@@ -2,10 +2,10 @@
     <main class="home-inner">
         <SearchInput placeholder="Search for movies" />
         <section aria-label="movies" class="recommended-movies">
-            <h2 id="movies">Movies</h2>
+            <h2 id="movies">TV Series</h2>
             <div class="inner-recomend">
                 <div v-for="movie in movieList" :key="movie.title">
-                    <RecommendMovie v-if="movie.category === 'TV Series'"
+                    <RecommendMovie
                         :movieCategory="movie.category"
                         :movieRating="movie.rating"
                         :movieYear="movie.year"
@@ -38,7 +38,10 @@ export default {
         }),
 
         movieList() {
-            return JSON.parse(JSON.stringify(this.movie))
+            let movieArray = this.movie;
+            return movieArray.filter( (movie) => {
+                return movie.category === 'TV Series';
+             });
         },
     },
     mounted() {

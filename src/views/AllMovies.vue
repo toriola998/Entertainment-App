@@ -5,7 +5,7 @@
             <h2 id="movies">Movies</h2>
             <div class="inner-recomend">
                 <div v-for="movie in movieList" :key="movie.title">
-                    <RecommendMovie v-if="movie.category === 'Movie'"
+                    <RecommendMovie
                         :movieCategory="movie.category"
                         :movieRating="movie.rating"
                         :movieYear="movie.year"
@@ -38,7 +38,10 @@ export default {
         }),
 
         movieList() {
-            return JSON.parse(JSON.stringify(this.movie))
+            let movieArray = this.movie;
+            return movieArray.filter( (movie) => {
+                return movie.category === 'Movie';
+             });
         },
     },
     mounted() {
