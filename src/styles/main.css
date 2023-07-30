@@ -28,8 +28,7 @@ button:focus {
 }
 
 .home {
-  @apply bg-dark-blue min-h-[100vh]
-    background-color: $dark-blue;
+  @apply bg-dark-blue min-h-[100vh];
 }
 
 .home-inner {
