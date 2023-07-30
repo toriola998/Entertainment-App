@@ -1,0 +1,21 @@
+$dark-blue: #10141e;
+$semi-dark-blue: #161d2f;
+$red: #fc4747;
+$greyish-blue: #5a698f;
+$white: #ffffff;
+
+@mixin flex($flex_position: center) {
+  justify-content: $flex_position;
+  display: flex;
+  align-items: center;
+}
+
+.home {
+  background-color: var(--dark-blue);
+  min-height: 100vh;
+  // width:  100vw;
+  .home-inner {
+    padding: 1rem;
+    overflow-x: hidden;
+  }
+}
