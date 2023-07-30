@@ -1,6 +1,10 @@
 <template>
-  <article class="movies">
-    <img :src="require(`@/assets/${movieCover}`)" alt="" class="movie" />
+  <article class="movies relative">
+    <img
+      :src="require(`@/assets/${movieCover}`)"
+      alt=""
+      class="movie mb-4 w-full object-cover h-[8.5rem] md:h-[12.5rem]"
+    />
     <button>
       <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -57,27 +61,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-article {
-  position: relative;
-  .movie {
-    margin-bottom: 1rem;
-    width: 100%;
-    height: 8.5rem;
-    object-fit: cover;
-  }
-}
-
-@media screen and (min-width: 700px) {
-  article .movie {
-    height: 12rem;
-  }
-}
-
-// @media screen and (min-width: 1200px){
-//     article  .movie {
-//         width: 280px;
-//     }
-// }
-</style>
