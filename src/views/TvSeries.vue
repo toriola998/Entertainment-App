@@ -19,10 +19,8 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
 import SearchInput from '@/components/SearchInput.vue';
 import Recommend from '@/components/Recommend.vue';
-import { mapState } from 'vuex'
 
 export default {
     name: 'Home',
