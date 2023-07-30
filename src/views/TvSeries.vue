@@ -18,13 +18,13 @@
     </main>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import SearchInput from '@/components/SearchInput.vue';
 import Recommend from '@/components/Recommend.vue';
 import { mapState } from 'vuex'
 
-export default defineComponent({
+export default {
     name: 'Home',
     components: {
         SearchInput,
@@ -33,19 +33,19 @@ export default defineComponent({
     methods: {
         
     },
-    computed: {
-        ...mapState({
-            movie: (state : any) => state.movie,
-        }),
+    // computed: {
+    //     ...mapState({
+    //         movie: () => state.movie,
+    //     }),
 
-        movieList() {
-            return JSON.parse(JSON.stringify(this.movie))
-        },
-    },
+    //     movieList() {
+    //         return JSON.parse(JSON.stringify(this.movie))
+    //     },
+    // },
     mounted() {
         console.log(this.movieList)
     }
-});
+};
 </script>
 
 <style lang="scss" scoped>

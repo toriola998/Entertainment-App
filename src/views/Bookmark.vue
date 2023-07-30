@@ -18,13 +18,11 @@
   </main>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script>
 import SearchInput from '@/components/SearchInput.vue';
 import Recommend from '@/components/Recommend.vue';
-import { mapState } from 'vuex'
 
-export default defineComponent({
+export default {
     name: 'Home',
     components: {
         SearchInput,
@@ -35,8 +33,8 @@ export default defineComponent({
     },
     computed: {
         ...mapState({
-            movie: (state : any) => state.movie,
-            bookmarkList: (state: any) => state.bookmarkList
+            movie: () => state.movie,
+            bookmarkList: () => state.bookmarkList
         }),
 
         movieList() {
@@ -47,8 +45,5 @@ export default defineComponent({
         console.log(this.movieList)
         // console.log(this.bookmarkList)
     }
-});
+};
 </script>
-
-<style lang="scss" scoped>
-</style>

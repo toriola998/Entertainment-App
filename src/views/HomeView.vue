@@ -33,14 +33,12 @@
     </main>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script>
 import SearchInput from '@/components/SearchInput.vue';
 import Trending from '@/components/Trending.vue';
 import Recommend from '@/components/Recommend.vue';
-import { mapState } from 'vuex'
 
-export default defineComponent({
+export default{
     name: 'Home',
     data() {
         return {
@@ -52,30 +50,30 @@ export default defineComponent({
         SearchInput,
         Recommend
     },
-    methods: {
-        ADD_IT() {
-            const movieDetail = {
-                movieCategory: this.movie.category 
-            }  
-            this.$store.commit('ADD_TO_BOOKMARK',  movieDetail)
-        }
-    },
-    computed: {
-        ...mapState({
-            movie: (state : any) => state.movie,
-             isBookmarked: (state : any) => state.isBookmarked,
-        }),
+    // methods: {
+    //     ADD_IT() {
+    //         const movieDetail = {
+    //             movieCategory: this.movie.category 
+    //         }  
+    //         this.$store.commit('ADD_TO_BOOKMARK',  movieDetail)
+    //     }
+    // },
+    // computed: {
+    //     ...mapState({
+    //         movie: () => state.movie,
+    //          isBookmarked: () => state.isBookmarked,
+    //     }),
 
-        movieList() {
-            return JSON.parse(JSON.stringify(this.movie))
-        },
+    //     movieList() {
+    //         return JSON.parse(JSON.stringify(this.movie))
+    //     },
 
-    },
+    // },
     mounted() {
         console.log(this.movieList);
         // console.log(this.trendingList)
     }
-});
+}
 </script>
 
 <style lang="scss" scoped>
