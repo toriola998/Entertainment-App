@@ -1,121 +1,126 @@
-$dark-blue: #10141E;
-$semi-dark-blue: #161D2F;
-$red: #FC4747;
-$greyish-blue: #5A698F;
+$dark-blue: #10141e;
+$semi-dark-blue: #161d2f;
+$red: #fc4747;
+$greyish-blue: #5a698f;
 $white: #ffffff;
 
 @mixin flex($flex_position: center) {
-    justify-content: $flex_position;
-    display: flex;
-    align-items: center;
+  justify-content: $flex_position;
+  display: flex;
+  align-items: center;
 }
 
-.home  {
-    background-color: $dark-blue;
-    min-height: 100vh;
-    // width:  100vw;
-    .home-inner { 
-        padding: 1rem; 
-        overflow-x: hidden;
-    }
+.home {
+  background-color: $dark-blue;
+  min-height: 100vh;
+  // width:  100vw;
+  .home-inner {
+    padding: 1rem;
+    overflow-x: hidden;
+  }
 }
 
 .input-wrap {
-    @include flex(unset);
-    padding: .5rem 0;
-    margin-bottom: 1.5rem;
+  @include flex(unset);
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
 
-    &:focus-within {
-        outline: 1px dashed $red;
-    }
+  &:focus-within {
+    outline: 1px dashed $red;
+  }
 
-    input {
-        width: 100%;
-        padding-left: 1rem;
-        color: #fff;
-        outline: 0;
-        font-size: 1.1rem;
-        font-weight: 300;
-    }
+  input {
+    width: 100%;
+    padding-left: 1rem;
+    color: #fff;
+    outline: 0;
+    font-size: 1.1rem;
+    font-weight: 300;
+  }
 
-    input::placeholder {
-        font-weight: 300;
-        color: #fff;
-        opacity: 0.5;
-    }
-}
-
-h2, h3 {
-    // font-size: 1.4rem;
+  input::placeholder {
     font-weight: 300;
     color: #fff;
+    opacity: 0.5;
+  }
 }
 
-.trend-wrap{
-    >div {
-        display: flex;
-        overflow-x: scroll;
-        -ms-overflow-style: none; // for Internet Explorer, Edge
-        scrollbar-width: none; // for Firefox
-        padding-bottom: 3rem;
-        // max-width: 1200px;
-    
-        &::-webkit-scrollbar {
-            display:none; // for Chrome, Safari and Opera
-        }
-        
-        >div {
-            margin-right: 1rem;
-        }
+h2,
+h3 {
+  // font-size: 1.4rem;
+  font-weight: 300;
+  color: #fff;
+}
+
+.trend-wrap {
+  > div {
+    display: flex;
+    overflow-x: scroll;
+    -ms-overflow-style: none; // for Internet Explorer, Edge
+    scrollbar-width: none; // for Firefox
+    padding-bottom: 3rem;
+    // max-width: 1200px;
+
+    &::-webkit-scrollbar {
+      display: none; // for Chrome, Safari and Opera
     }
+
+    > div {
+      margin-right: 1rem;
+    }
+  }
 }
 
 .recommended-movies {
-    h2 { margin: 1.5rem 0;}
+  h2 {
+    margin: 1.5rem 0;
+  }
+
+  .inner-recomend {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .recommended-movies {
+    h2 {
+      margin: 2rem 0;
+    }
 
     .inner-recomend {
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 1.5rem;
+      grid-template-columns: auto auto auto;
     }
+  }
+
+  // h2, h3 {
+  //     font-size: 1.56rem;
+  // }
+
+  .input-wrap {
+    width: 40%;
+  }
 }
 
-@media screen and (min-width: 700px){
-    .recommended-movies {
-        h2 { margin: 2rem 0;}
+@media screen and (min-width: 1024px) {
+  .home > div {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+  }
 
-        .inner-recomend {
-            grid-template-columns: auto auto auto;
-        }
-    }
-
-    // h2, h3 {
-    //     font-size: 1.56rem;
-    // }
-
-    .input-wrap {
-        width: 40%;
-    }
+  .input-wrap input::placeholder {
+    font-size: 1.2rem;
+  }
 }
 
-@media screen and (min-width: 1024px){ 
-    .home > div {
-        display: grid;
-        grid-template-columns: auto auto;
-        width: 100%;
-        max-width: 1400px;
-        margin: auto;
+@media screen and (min-width: 1200px) {
+  .recommended-movies {
+    .inner-recomend {
+      grid-template-columns: auto auto auto auto;
     }
-
-    .input-wrap input::placeholder {
-        font-size: 1.2rem;
-    }
-}
-
-@media screen and (min-width: 1200px){ 
- .recommended-movies {
-        .inner-recomend {
-            grid-template-columns: auto auto auto auto;
-        }
-    }
+  }
 }
