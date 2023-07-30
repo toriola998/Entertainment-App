@@ -27,10 +27,9 @@
     </article>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script>
 
-export default defineComponent({
+export default {
     name: 'Home',
     props: {
         movieYear: { 
@@ -59,7 +58,7 @@ export default defineComponent({
             // default: '' 
         },
     }
-});
+};
 </script>
 
 <style lang="scss" scoped>
