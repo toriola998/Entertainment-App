@@ -1,5 +1,5 @@
 <template>
-  <article class="trending">
+  <article class="trending mt-8 mr-4">
     <img :src="require(`@/assets/${movieCover}`)" alt="" class="movie" />
     <button @click="$emit('bookmark')">
       <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
@@ -11,7 +11,7 @@
         />
       </svg>
     </button>
-    <div>
+    <div class="absolute bottom-4 left-4">
       <p class="movie-info">
         <span>{{ movieYear }}</span>
         <span>
@@ -57,15 +57,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.trending {
-  margin: 2rem 1rem 0 0;
-
-  > div {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-  }
-}
-</style>
