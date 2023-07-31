@@ -1,14 +1,14 @@
 <template>
   <nav class="nav-bar sm:p-4">
-    <div class="p-4 b-dark-blue-2 flex items-center justify-between sm:rounded-[20px]">
+    <div class="p-4 bg-dark-blue-2 flex items-center justify-between sm:rounded-[10px]">
       <router-link to="/">
         <img src="@/assets/logo.svg" alt="Home - Entertainment app" />
       </router-link>
 
-      <ul class="icon-nav flex">
+      <ul class="icon-nav flex gap-x-5 items-center">
         <li v-for="(item, index) in navLinks" :key="index">
           <router-link :to="item.link" class="block">
-            <svg width="17" height="20" xmlns="http://www.w3.org/2000/svg">
+            <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
               <path :d="item.svgData" fill="#5A698F" />
             </svg>
           </router-link>
@@ -16,7 +16,11 @@
       </ul>
 
       <button>
-        <img src="@/assets/image-avatar.png" alt="Your image" height="30" image="30" />
+        <img
+          src="@/assets/image-avatar.png"
+          alt="Your image"
+          class="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
+        />
       </button>
     </div>
   </nav>

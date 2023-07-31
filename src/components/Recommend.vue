@@ -1,7 +1,7 @@
 <template>
   <article class="movies relative">
     <img
-      :src="require(`@/assets/${movieCover}`)"
+      :src="`@/assets/${movieCover}`"
       alt=""
       class="movie mb-4 w-full object-cover h-[8.5rem] md:h-[12.5rem]"
     />

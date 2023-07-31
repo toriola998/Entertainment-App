@@ -1,6 +1,6 @@
 <template>
   <article class="trending mt-8 mr-4">
-    <img :src="require(`@/assets/${movieCover}`)" alt="" class="movie" />
+    <img :src="`@/assets/${movieCover}`" alt="" class="movie" />
     <button @click="$emit('bookmark')">
       <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
         <path
