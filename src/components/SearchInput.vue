@@ -1,6 +1,6 @@
 <template>
   <div class="input-wrap">
-    <img src="@/assets/icon-search.svg" alt="" role="presentation" class="w-6 h-6 ml-3" />
+    <img src="@/assets/icon-search.svg" alt="" role="presentation" class="w-6 h-6" />
     <input :placeholder="placeholder" type="text" />
   </div>
 </template>
@@ -13,3 +13,27 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+.input-wrap {
+  @apply flex py-2 mb-6 h-20 items-center;
+
+  input {
+    @apply w-full pl-4 text-white outline-none text-[1.1rem] font-light py-[inherit];
+
+    &:focus-within {
+      border-bottom: 1px solid var(--greyish-blue);
+    }
+  }
+
+  input::placeholder {
+    @apply opacity-50 text-white font-light text-[15px] md:text-[1rem];
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .input-wrap input::placeholder {
+    font-size: 1.2rem;
+  }
+}
+</style>

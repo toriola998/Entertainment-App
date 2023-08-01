@@ -59,3 +59,22 @@ onMounted(() => {
 
 // },
 </script>
+
+<style scoped lang="scss">
+.trend-wrap {
+  > div {
+    @apply flex overflow-x-scroll;
+
+    -ms-overflow-style: none; // for Internet Explorer, Edge
+    scrollbar-width: none; // for Firefox
+
+    &::-webkit-scrollbar {
+      display: none; // for Chrome, Safari and Opera
+    }
+
+    > div {
+      margin-right: 1rem;
+    }
+  }
+}
+</style>
