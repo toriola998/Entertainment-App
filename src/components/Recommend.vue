@@ -1,9 +1,9 @@
 <template>
-  <article class="movies relative">
+  <article class="movies relative h-[110px]">
     <img
-      :src="`@/assets/${movieCover}`"
+      :src="imageUrl"
       alt=""
-      class="movie mb-4 w-full object-cover h-[8.5rem] md:h-[12.5rem]"
+      class="movie max-w-[unset] mb-4 w-full object-cover h-[8.5rem] md:h-[12.5rem]"
     />
     <button>
       <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
@@ -16,48 +16,26 @@
       </svg>
     </button>
     <div>
-      <p class="movie-info">
-        <span>{{ movieYear }}</span>
-        <span>
-          <img src="@/assets/icon-category-movie.svg" alt="" role="presentation" />
-          {{ movieCategory }}
+      <p class="movie-info flex items-center text-[11px]">
+        <span class="">{{ movie.year }}</span>
+        <span class="flex items-center">
+          <img src="@/assets/icon-category-movie.svg" alt="" role="presentation" class="mr-2" />
+          {{ movie.category }}
         </span>
-        <span>{{ movieRating }}</span>
+        <span>{{ movie.rating }}</span>
       </p>
-      <h3>{{ movieTitle }}</h3>
+      <h3 class="text-sm">{{ movie.title }}</h3>
     </div>
   </article>
 </template>
 
-<script>
-export default {
-  name: 'Home',
-  props: {
-    movieYear: {
-      type: Number,
-      required: true,
-      default: 2019
-    },
-    movieCategory: {
-      type: String,
-      required: true,
-      default: ''
-    },
-    movieRating: {
-      type: String,
-      required: true,
-      default: ''
-    },
-    movieTitle: {
-      type: String,
-      required: true,
-      default: ''
-    },
-    movieCover: {
-      type: String
-      // required: true,
-      // default: ''
-    }
+<script setup>
+const props = defineProps({
+  movie: {
+    type: Object,
+    required: true
   }
-}
+})
+
+const imageUrl = new URL(`/src/assets/${props.movie.thumbnail.regular.small}`, import.meta.url).href
 </script>

@@ -17,6 +17,10 @@
   font-family: 'Outfit', sans-serif;
 }
 
+img {
+  max-width: unset;
+}
+
 button,
 input {
   background: none;
@@ -46,13 +50,13 @@ button:focus {
 }
 
 article .movie {
-  @apply relative rounded-2xl w-[450px] h-[200px];
+  @apply relative rounded-2xl max-w-[unset];
 }
 
 .trending,
 .movies {
   h3 {
-    @apply text-[1.05rem] font-medium text-white;
+    @apply text-[.95rem] font-medium text-white;
   }
 
   p {
@@ -62,13 +66,13 @@ article .movie {
     span:nth-child(2)::after {
       @apply inline-flex h-1 w-1 bg-white opacity-50 rounded-[25px] mx-2;
       content: '';
-      //mix-blend-mode: normal;
+      mix-blend-mode: normal;
     }
   }
 
-  span img {
-    margin-right: 0.4rem;
-  }
+  // span img {
+  //   margin-right: 0.4rem;
+  // }
 
   button {
     @apply cursor-pointer h-6 w-6 rounded-2xl absolute right-3 top-3 flex items-center;
@@ -110,7 +114,7 @@ h3 {
 
 .trend-wrap {
   > div {
-    @apply flex overflow-x-scroll pb-12;
+    @apply flex overflow-x-scroll pb-10;
 
     -ms-overflow-style: none; // for Internet Explorer, Edge
     scrollbar-width: none; // for Firefox
@@ -130,10 +134,10 @@ h3 {
     margin: 1.5rem 0;
   }
 
-  .inner-recomend {
-    @apply grid gap-6;
-    grid-template-columns: auto auto;
-  }
+  // .inner-recomend {
+  //   @apply grid gap-6;
+  //   grid-template-columns: auto auto;
+  // }
 }
 
 @media screen and (min-width: 700px) {
@@ -142,9 +146,9 @@ h3 {
       margin: 2rem 0;
     }
 
-    .inner-recomend {
-      grid-template-columns: auto auto auto;
-    }
+    // .inner-recomend {
+    //   grid-template-columns: auto auto auto;
+    // }
   }
 
   .input-wrap {
@@ -175,10 +179,10 @@ h3 {
   }
 }
 
-@media screen and (min-width: 1200px) {
-  .recommended-movies {
-    .inner-recomend {
-      grid-template-columns: auto auto auto auto;
-    }
-  }
-}
+// @media screen and (min-width: 1200px) {
+//   .recommended-movies {
+//     .inner-recomend {
+//       grid-template-columns: auto auto auto auto;
+//     }
+//   }
+// }

@@ -1,6 +1,6 @@
 <template>
   <article class="trending mt-8 mr-4">
-    <img :src="imageUrl" alt="" class="movie max-w-[unset]" />
+    <img :src="imageUrl" alt="" class="movie max-w-[unset] h-[200px] w-[450px]" />
     <button @click="$emit('bookmark')">
       <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -12,10 +12,10 @@
       </svg>
     </button>
     <div class="absolute bottom-4 left-4">
-      <p class="movie-info">
+      <p class="movie-info flex items-center">
         <span>{{ movie.year }}</span>
-        <span>
-          <img src="@/assets/icon-category-movie.svg" alt="" role="presentation" />
+        <span class="flex items-center">
+          <img src="@/assets/icon-category-movie.svg" alt="" role="presentation" class="mr-2" />
           {{ movie.category }}
         </span>
         <span>{{ movie.rating }}</span>
