@@ -31,22 +31,8 @@ button:focus {
   outline: 1px dashed var(--red);
 }
 
-@mixin flex($flex_position: center) {
-  justify-content: $flex_position;
-  display: flex;
-  align-items: center;
-}
-
-.home {
-  @apply bg-dark-blue min-h-[100vh];
-}
-
 .home-inner {
   @apply p-4 overflow-x-hidden;
-}
-
-.trending {
-  @apply bg-no-repeat bg-cover h-[12rem] relative rounded-2xl;
 }
 
 article .movie {
@@ -69,10 +55,6 @@ article .movie {
       mix-blend-mode: normal;
     }
   }
-
-  // span img {
-  //   margin-right: 0.4rem;
-  // }
 
   button {
     @apply cursor-pointer h-6 w-6 rounded-2xl absolute right-3 top-3 flex items-center;
@@ -103,7 +85,7 @@ article .movie {
   }
 
   input::placeholder {
-    @apply opacity-50 text-white font-light text-[15px];
+    @apply opacity-50 text-white font-light text-[15px] md:text-[1rem];
   }
 }
 
@@ -114,7 +96,7 @@ h3 {
 
 .trend-wrap {
   > div {
-    @apply flex overflow-x-scroll pb-10;
+    @apply flex overflow-x-scroll;
 
     -ms-overflow-style: none; // for Internet Explorer, Edge
     scrollbar-width: none; // for Firefox
@@ -129,60 +111,8 @@ h3 {
   }
 }
 
-.recommended-movies {
-  h2 {
-    margin: 1.5rem 0;
-  }
-
-  // .inner-recomend {
-  //   @apply grid gap-6;
-  //   grid-template-columns: auto auto;
-  // }
-}
-
-@media screen and (min-width: 700px) {
-  .recommended-movies {
-    h2 {
-      margin: 2rem 0;
-    }
-
-    // .inner-recomend {
-    //   grid-template-columns: auto auto auto;
-    // }
-  }
-
-  .input-wrap {
-    width: 40%;
-  }
-}
-
 @media screen and (min-width: 1024px) {
-  .home > div {
-    @apply grid w-full max-w-[1400px] m-auto;
-    grid-template-columns: auto auto;
-  }
-
   .input-wrap input::placeholder {
     font-size: 1.2rem;
   }
-  .trending h3 {
-    font-size: 1.3rem;
-  }
-
-  .home {
-    @apply grid w-full max-w-[1400px] m-auto;
-    grid-template-columns: auto auto;
-  }
-
-  article .movie {
-    height: 220px;
-  }
 }
-
-// @media screen and (min-width: 1200px) {
-//   .recommended-movies {
-//     .inner-recomend {
-//       grid-template-columns: auto auto auto auto;
-//     }
-//   }
-// }

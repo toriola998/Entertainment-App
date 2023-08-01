@@ -5,7 +5,7 @@
         <img src="@/assets/logo.svg" alt="Home - Entertainment app" />
       </router-link>
 
-      <ul class="icon-nav flex gap-x-5 items-center">
+      <ul class="icon-nav flex lg:flex-col gap-5 md:gap-7 items-center">
         <li v-for="(item, index) in navLinks" :key="index">
           <router-link :to="item.link" class="block">
             <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">

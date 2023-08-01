@@ -3,7 +3,7 @@
     <img
       :src="imageUrl"
       alt=""
-      class="movie max-w-[unset] mb-4 w-full object-cover h-[8.5rem] md:h-[12.5rem]"
+      class="movie max-w-[unset] mb-4 w-full object-cover h-[8.7rem] xl:h-[11rem]"
     />
     <button>
       <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
@@ -16,7 +16,7 @@
       </svg>
     </button>
     <div>
-      <p class="movie-info flex items-center text-[11px]">
+      <p class="movie-info flex items-center text-[11px] md:text-sm">
         <span class="">{{ movie.year }}</span>
         <span class="flex items-center">
           <img src="@/assets/icon-category-movie.svg" alt="" role="presentation" class="mr-2" />
@@ -24,7 +24,7 @@
         </span>
         <span>{{ movie.rating }}</span>
       </p>
-      <h3 class="text-sm">{{ movie.title }}</h3>
+      <h3 class="text-sm md:text-lg">{{ movie.title }}</h3>
     </div>
   </article>
 </template>
