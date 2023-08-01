@@ -1,6 +1,6 @@
 <template>
   <article class="trending mt-8 mr-4">
-    <img :src="`@/assets/${movieCover}`" alt="" class="movie" />
+    <img :src="imageUrl" alt="" class="movie max-w-[unset]" />
     <button @click="$emit('bookmark')">
       <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -13,47 +13,25 @@
     </button>
     <div class="absolute bottom-4 left-4">
       <p class="movie-info">
-        <span>{{ movieYear }}</span>
+        <span>{{ movie.year }}</span>
         <span>
           <img src="@/assets/icon-category-movie.svg" alt="" role="presentation" />
-          {{ movieCategory }}
+          {{ movie.category }}
         </span>
-        <span>{{ movieRating }}</span>
+        <span>{{ movie.rating }}</span>
       </p>
-      <h3>{{ movieTitle }}</h3>
+      <h3>{{ movie.title }}</h3>
     </div>
   </article>
 </template>
 
-<script>
-export default {
-  name: 'Home',
-  props: {
-    movieYear: {
-      type: Number,
-      required: true,
-      default: 2019
-    },
-    movieCategory: {
-      type: String,
-      required: true,
-      default: ''
-    },
-    movieRating: {
-      type: String,
-      required: true,
-      default: ''
-    },
-    movieTitle: {
-      type: String,
-      required: true,
-      default: ''
-    },
-    movieCover: {
-      type: String
-      // required: true,
-      // default: ''
-    }
+<script setup>
+const props = defineProps({
+  movie: {
+    type: Object,
+    required: true
   }
-}
+})
+
+const imageUrl = new URL(`/src/assets/${props.movie.thumbnail.regular.small}`, import.meta.url).href
 </script>

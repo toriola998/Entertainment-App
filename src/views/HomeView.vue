@@ -5,21 +5,10 @@
       <h2 id="trending" class="text-xl">Trending</h2>
       <div>
         <div v-for="movie in movieList" :key="movie.title">
-          <Trending
-            v-if="movie.isTrending === true"
-            :movieCategory="movie.category"
-            :movieRating="movie.rating"
-            :movieYear="movie.year"
-            :movieTitle="movie.title"
-            :movieCover="movie.thumbnail.regular.small"
-            @bookmark="ADD_IT"
-          >
-          </Trending>
+          <Trending v-if="movie.isTrending === true" :movie="movie" @bookmark="ADD_IT"> </Trending>
         </div>
       </div>
     </section>
-
-    <!-- :image="`url(${movie.thumbnail.regular.small})`" -->
     <section aria-label="recommended-movies" class="recommended-movies">
       <h2 id="recommended-movies">Recommended for you</h2>
       <div class="inner-recomend">
