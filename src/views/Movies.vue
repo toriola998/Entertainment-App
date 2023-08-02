@@ -2,47 +2,33 @@
   <main class="home-inner">
     <SearchInput placeholder="Search for movies" />
     <section aria-label="movies" class="recommended-movies">
-      <h2 id="movies">Movies</h2>
-      <div class="inner-recomend">
-        <div v-for="movie in movieList" :key="movie.title">
-          <Recommend
-            v-if="movie.category === 'Movie'"
-            :movieCategory="movie.category"
-            :movieRating="movie.rating"
-            :movieYear="movie.year"
-            :movieTitle="movie.title"
-            :movieCover="movie.thumbnail.regular.small"
-          />
-        </div>
+      <h2 id="movies" class="text-xl md:text-[1.5rem] my-8">Movies</h2>
+      <div class="inner-recomend flex-wrap flex gap-x-4 gap-y-28 xl:gap-y-40 justify-between">
+        <Recommend
+          class="w-[47%] sm:w-[31%] lg:w-[23%]"
+          v-for="movie in movies"
+          :key="movie.title"
+          :movie="movie"
+        />
       </div>
     </section>
   </main>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
 import SearchInput from '@/components/SearchInput.vue'
 import Recommend from '@/components/Recommend.vue'
+import { useMoviesStore } from '@/stores/movies'
+import { storeToRefs } from 'pinia'
 
-export default {
-  name: 'Home',
-  components: {
-    SearchInput,
-    Recommend
-  },
-  // methods: {
+const store = useMoviesStore()
+const { movieList } = storeToRefs(store)
 
-  // },
-  // computed: {
-  //     ...mapState({
-  //         movie: () => state.movie,
-  //     }),
-
-  //     movieList() {
-  //         return JSON.parse(JSON.stringify(this.movie))
-  //     },
-  // },
-  mounted() {
-    console.log(this.movieList)
-  }
-}
+console.log(movieList)
+const movies = computed(() => {
+  return movieList.value.filter( (movie) => {
+    return movie.category === 'Movie'
+  })
+})
 </script>

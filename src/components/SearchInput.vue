@@ -16,7 +16,7 @@ export default {
 
 <style scoped lang="scss">
 .input-wrap {
-  @apply flex py-2 mb-6 h-20 items-center;
+  @apply flex py-2 mb-6 items-center;
 
   input {
     @apply w-full pl-4 text-white outline-none text-[1.1rem] font-light py-[inherit];
