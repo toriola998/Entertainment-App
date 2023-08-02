@@ -26,6 +26,11 @@ const router = createRouter({
       path: '/bookmark',
       name: 'Bookmark',
       component: () => import(/* webpackChunkName: "about" */ '../views/Bookmark.vue')
+    },
+    {
+      path: '/search',
+      name: 'Search',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Search.vue')
     }
   ]
 })

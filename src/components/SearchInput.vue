@@ -1,17 +1,29 @@
 <template>
-  <div class="input-wrap">
+  <form class="input-wrap" @submit.prevent="search()">
     <img src="@/assets/icon-search.svg" alt="" role="presentation" class="w-6 h-6" />
-    <input :placeholder="placeholder" type="text" />
-  </div>
+    <input :placeholder="placeholder" type="text" v-model="searchText" />
+  </form>
 </template>
 
-<script>
-export default {
-  name: 'SearchInput',
-  props: {
-    placeholder: String
-  }
+<script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+const searchText = ref('')
+
+function search() {
+  console.log(searchText.value)
+  router.push({ path: '/search', query: { s: searchText.value } })
 }
+console.log(searchText)
+
+defineProps({
+  placeholder: {
+    type: String,
+    default: 'Search...'
+  }
+})
 </script>
 
 <style scoped lang="scss">
