@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed } from 'vue'
 import SearchInput from '@/components/SearchInput.vue'
 import Recommend from '@/components/Recommend.vue'
 import { useMoviesStore } from '@/stores/movies'
@@ -27,7 +27,7 @@ const { movieList } = storeToRefs(store)
 
 console.log(movieList)
 const movies = computed(() => {
-  return movieList.value.filter( (movie) => {
+  return movieList.value.filter((movie) => {
     return movie.category === 'TV Series'
   })
 })
