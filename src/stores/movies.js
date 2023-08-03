@@ -6,8 +6,9 @@ export const useMoviesStore = defineStore('movies', () => {
   const movieList = ref(data)
   const isBookmarked = ref(false)
   const bookmarkList = ref([])
+  const searchList = ref([])
 
-  const trendingList = computed(() => {})
+  //const trendingList = computed(() => {})
 
   // getters: {
   //     trendingList(state: any) {
@@ -27,5 +28,5 @@ export const useMoviesStore = defineStore('movies', () => {
     bookmarkList.push(payload)
   }
 
-  return { BOOKMARK_MOVIE, ADD_TO_BOOKMARK, movieList, isBookmarked, bookmarkList }
+  return { BOOKMARK_MOVIE, ADD_TO_BOOKMARK, movieList, searchList, isBookmarked, bookmarkList }
 })

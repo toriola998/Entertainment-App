@@ -16,7 +16,7 @@ import TheNavBar from '@/components/TheNavBar.vue'
   @apply bg-dark-blue min-h-[100vh];
 
   > div {
-    grid-template-columns: auto auto;
+    grid-template-columns: 10% auto;
     @apply lg:grid max-w-[1600px] mx-auto;
   }
 }

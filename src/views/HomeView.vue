@@ -27,37 +27,12 @@
 import SearchInput from '@/components/SearchInput.vue'
 import Trending from '@/components/Trending.vue'
 import Recommend from '@/components/Recommend.vue'
-import { onMounted } from 'vue'
 
 import { useMoviesStore } from '@/stores/movies'
 import { storeToRefs } from 'pinia'
 
 const store = useMoviesStore()
 const { movieList } = storeToRefs(store)
-//const { cart } = storeToRefs(store);
-
-onMounted(() => {
-  console.log(movieList)
-})
-// methods: {
-//     ADD_IT() {
-//         const movieDetail = {
-//             movieCategory: this.movie.category
-//         }
-//         this.$store.commit('ADD_TO_BOOKMARK',  movieDetail)
-//     }
-// },
-// computed: {
-//     ...mapState({
-//         movie: () => state.movie,
-//          isBookmarked: () => state.isBookmarked,
-//     }),
-
-//     movieList() {
-//         return JSON.parse(JSON.stringify(this.movie))
-//     },
-
-// },
 </script>
 
 <style scoped lang="scss">

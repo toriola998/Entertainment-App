@@ -6,17 +6,32 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { onMounted, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+const route = useRoute()
 const router = useRouter()
+
+import { useMoviesStore } from '@/stores/movies'
+import { storeToRefs } from 'pinia'
+const store = useMoviesStore()
+const { movieList } = storeToRefs(store)
+const { searchList } = storeToRefs(store)
 
 const searchText = ref('')
 
 function search() {
-  console.log(searchText.value)
   router.push({ path: '/search', query: { s: searchText.value } })
+  searchList.value = movieList.value.filter((item) => {
+    return item.title.toLowerCase().includes(searchText.value.toLowerCase())
+  })
+  console.log(searchText.value, searchList)
 }
-console.log(searchText)
+
+// onMounted( () => {
+//   if(route.query.s !== '' && route.path === '/search') {
+//     search()
+//   }
+// })
 
 defineProps({
   placeholder: {
