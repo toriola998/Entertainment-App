@@ -9,6 +9,7 @@
           v-for="movie in movies"
           :key="movie.title"
           :movie="movie"
+          @bookmark="addToBookmarkList(movie)"
         />
       </div>
     </section>
@@ -24,6 +25,7 @@ import { storeToRefs } from 'pinia'
 
 const store = useMoviesStore()
 const { movieList } = storeToRefs(store)
+const { addToBookmarkList } = store
 
 console.log(movieList)
 const movies = computed(() => {

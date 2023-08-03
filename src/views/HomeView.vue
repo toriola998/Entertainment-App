@@ -5,7 +5,12 @@
       <h2 id="trending" class="text-xl md:text-[1.5rem]">Trending</h2>
       <div>
         <div v-for="movie in movieList" :key="movie.title">
-          <Trending v-if="movie.isTrending === true" :movie="movie" @bookmark="ADD_IT"> </Trending>
+          <Trending
+            v-if="movie.isTrending === true"
+            :movie="movie"
+            @bookmark="addToBookmarkList(movie)"
+          >
+          </Trending>
         </div>
       </div>
     </section>
@@ -17,6 +22,7 @@
           v-for="movie in movieList"
           :key="movie.title"
           :movie="movie"
+          @bookmark="addToBookmarkList(movie)"
         />
       </div>
     </section>
@@ -33,6 +39,7 @@ import { storeToRefs } from 'pinia'
 
 const store = useMoviesStore()
 const { movieList } = storeToRefs(store)
+const { addToBookmarkList } = store
 </script>
 
 <style scoped lang="scss">

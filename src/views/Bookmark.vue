@@ -2,46 +2,27 @@
   <main class="home-inner">
     <SearchInput placeholder="Search for bookmarked movies" />
     <section aria-label="bookmarked-movies" class="recommended-movies">
-      <h2 id="bookmarked-movies">Bookmarked Movies</h2>
-      <div class="inner-recomend">
-        <!-- <div v-for="movie in movieList" :key="movie.title">
-                <Recommend
-                    :movieCategory="movie.category"
-                    :movieRating="movie.rating"
-                    :movieYear="movie.year"
-                    :movieTitle="movie.title" 
-                    :movieCover="movie.thumbnail.regular.small"
-                />
-            </div> -->
+      <h2 id="bookmarked-movies" class="text-xl md:text-[1.5rem] my-8">Bookmarked Movies</h2>
+      <div class="inner-recomend flex-wrap flex gap-x-4 gap-y-28 xl:gap-y-40">
+        <Recommend
+          class="w-[47%] sm:w-[31%] lg:w-[23%]"
+          v-for="movie in bookmarkList"
+          :key="movie.title"
+          :movie="movie"
+        />
       </div>
     </section>
   </main>
 </template>
 
-<script>
+<script setup>
 import SearchInput from '@/components/SearchInput.vue'
 import Recommend from '@/components/Recommend.vue'
 
-export default {
-  name: 'Home',
-  components: {
-    SearchInput,
-    Recommend
-  },
-  methods: {},
-  computed: {
-    ...mapState({
-      movie: () => state.movie,
-      bookmarkList: () => state.bookmarkList
-    }),
+import { useMoviesStore } from '@/stores/movies'
+import { storeToRefs } from 'pinia'
 
-    movieList() {
-      return JSON.parse(JSON.stringify(this.movie))
-    }
-  },
-  mounted() {
-    console.log(this.movieList)
-    // console.log(this.bookmarkList)
-  }
-}
+const store = useMoviesStore()
+const { movieList } = storeToRefs(store)
+const { bookmarkList } = storeToRefs(store)
 </script>

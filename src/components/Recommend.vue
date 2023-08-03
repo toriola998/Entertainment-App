@@ -5,7 +5,7 @@
       alt=""
       class="movie max-w-[unset] mb-4 w-full object-cover h-[8.7rem] xl:h-[11rem]"
     />
-    <button>
+    <button @click="$emit('bookmark')">
       <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
         <path
           d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z"
