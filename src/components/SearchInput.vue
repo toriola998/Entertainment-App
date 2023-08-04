@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
 const router = useRouter()
@@ -17,21 +17,35 @@ const store = useMoviesStore()
 const { movieList } = storeToRefs(store)
 const { searchList } = storeToRefs(store)
 
+const movies = computed(() => {
+  return movieList.value.filter((movie) => {
+    return movie.category === 'Movie'
+  })
+})
+
+const tvSeries = computed(() => {
+  return movieList.value.filter((movie) => {
+    return movie.category === 'Movie'
+  })
+})
+
 const searchText = ref('')
+let myArray = ref([])
 
 function search() {
   router.push({ path: '/search', query: { s: searchText.value } })
-  searchList.value = movieList.value.filter((item) => {
+
+  if (route.path === '/movies') {
+    myArray.value = movies.value
+  } else if (route.path === '/movies') {
+    myArray.value = tvSeries.value
+  } else return movieList
+
+  searchList.value = myArray.value.filter((item) => {
     return item.title.toLowerCase().includes(searchText.value.toLowerCase())
   })
   console.log(searchText.value, searchList)
 }
-
-// onMounted( () => {
-//   if(route.query.s !== '' && route.path === '/search') {
-//     search()
-//   }
-// })
 
 defineProps({
   placeholder: {
