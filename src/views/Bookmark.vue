@@ -2,7 +2,7 @@
   <main class="home-inner">
     <SearchInput placeholder="Search for bookmarked movies" />
 
-    <div class="flex flex-col gap-40 pb-40">
+    <div class="flex flex-col gap-40 pb-32">
       <section aria-label="bookmarked-movies" class="recommended-movies">
         <h2 id="bookmarked-movies" class="text-xl md:text-[1.5rem] my-8">Bookmarked Movies</h2>
         <div class="inner-recomend flex-wrap flex gap-x-4 gap-y-28 xl:gap-y-40">

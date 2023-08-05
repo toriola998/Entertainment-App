@@ -15,6 +15,8 @@ import { useMoviesStore } from '@/stores/movies'
 import { storeToRefs } from 'pinia'
 const store = useMoviesStore()
 const { movieList } = storeToRefs(store)
+const { bookmarkedMovies } = storeToRefs(store)
+const { bookmarkedSeries } = storeToRefs(store)
 const { searchList } = storeToRefs(store)
 
 const movies = computed(() => {
@@ -39,7 +41,9 @@ function search() {
     myArray.value = movies.value
   } else if (route.path === '/movies') {
     myArray.value = tvSeries.value
-  } else return movieList
+  } else if (route.path === '/bookmark') {
+    myArray.value = [...bookmarkedMovies.value, ...bookmarkedSeries.value]
+  } else myArray.value = movieList.value
 
   searchList.value = myArray.value.filter((item) => {
     return item.title.toLowerCase().includes(searchText.value.toLowerCase())
