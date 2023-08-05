@@ -5,11 +5,10 @@ import data from '/data.json'
 export const useMoviesStore = defineStore('movies', () => {
   const movieList = ref(data)
   const isBookmarked = ref(false)
-  const bookmarkList = ref([])
   const bookmarkedMovies = ref([])
   const bookmarkedSeries = ref([])
   const searchList = ref([])
-
+  
   function BOOKMARK_MOVIE() {
     isBookmarked.value = true
   }
@@ -31,7 +30,6 @@ export const useMoviesStore = defineStore('movies', () => {
     movieList,
     searchList,
     isBookmarked,
-    bookmarkList,
     bookmarkedMovies,
     bookmarkedSeries
   }
