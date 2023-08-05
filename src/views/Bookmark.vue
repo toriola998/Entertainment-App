@@ -1,19 +1,19 @@
 <template>
   <main class="home-inner">
     <SearchInput placeholder="Search for bookmarked movies" />
-    <div class="flex flex-col gap-28 pb-40">
       <MovieSection
+        v-if="bookmarkedMovies?.length"
         ariaLabel="bookmarked-movies"
         title="Bookmarked Movies"
         :movie-list="bookmarkedMovies"
       />
 
       <MovieSection
+        v-if="bookmarkedSeries?.length"
         ariaLabel="bookmarked-series"
         title="Bookmarked Series"
         :movie-list="bookmarkedSeries"
       />
-    </div>
   </main>
 </template>
 

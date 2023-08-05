@@ -1,5 +1,5 @@
 <template>
-  <section :aria-label="ariaLabel" class="recommended-movies">
+  <section :aria-label="ariaLabel" class="recommended-movies pb-40">
     <h2 :id="ariaLabel" class="text-xl md:text-[1.5rem] my-8">{{ title }}</h2>
     <div class="inner-recomend flex-wrap flex gap-x-4 gap-y-28 xl:gap-y-40">
       <Movie
