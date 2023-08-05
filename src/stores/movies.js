@@ -13,7 +13,10 @@ export const useMoviesStore = defineStore('movies', () => {
   }
 
   function addToBookmarkList(payload) {
-    bookmarkList.value.push(payload)
+    let bookmarked = bookmarkList.value.find((item) => item.title === payload.title)
+    if (!bookmarked) {
+      bookmarkList.value.push(payload)
+    } else return
   }
 
   return { BOOKMARK_MOVIE, addToBookmarkList, movieList, searchList, isBookmarked, bookmarkList }
