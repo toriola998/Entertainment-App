@@ -27,10 +27,6 @@ input {
   border: 0;
 }
 
-button:focus {
-  outline: 1px dashed var(--red);
-}
-
 .home-inner {
   @apply p-4 overflow-x-hidden;
 }
@@ -57,19 +53,21 @@ article .movie {
   }
 
   button {
-    @apply cursor-pointer h-6 w-6 rounded-2xl absolute right-3 top-3 flex items-center justify-center;
+    @apply cursor-pointer h-8 w-8 rounded-2xl absolute right-3 top-3 flex items-center justify-center;
+    background: rgba(0, 0, 0, 0.6);
 
     &:hover {
       background: #fff;
-    }
+      transition: all .3s ease-in-out;
 
-    svg:hover path {
-      fill: #000;
+      &:hover svg path {
+        stroke: #000;
+        transition: all .6s ease-in-out;
+      }
     }
-
-    svg:active path {
-      fill: #fff;
-    }
+    // svg:active path {
+    //   fill: #fff;
+    // }
   }
 }
 
