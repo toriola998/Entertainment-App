@@ -4,7 +4,7 @@
 
     <MovieSection
       ariaLabel="search-results"
-      :title="`Found ${ searchList.length } result for '${ route.query?.s }'`"
+      :title="`Found ${searchList.length} result for '${route.query?.s}'`"
       :movie-list="searchList"
     />
   </main>
