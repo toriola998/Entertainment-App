@@ -1,33 +1,20 @@
 <template>
   <main class="home-inner">
     <SearchInput placeholder="Search for movies" />
-    <section aria-label="movies" class="recommended-movies">
-      <h2 id="movies" class="text-xl md:text-[1.5rem] my-8">Movies</h2>
-      <div class="inner-recomend flex-wrap flex gap-x-4 gap-y-28 xl:gap-y-40 justify-between">
-        <Recommend
-          class="w-[47%] sm:w-[31%] lg:w-[23%]"
-          v-for="movie in movies"
-          :key="movie.title"
-          :movie="movie"
-          @bookmark="addToBookmarkList(movie)"
-        />
-      </div>
-    </section>
+    <MovieSection ariaLabel="movies" title="Movies" :movie-list="movies" />
   </main>
 </template>
 
 <script setup>
 import { computed } from 'vue'
 import SearchInput from '@/components/SearchInput.vue'
-import Recommend from '@/components/Recommend.vue'
+import MovieSection from '../components/MovieSection.vue'
+
 import { useMoviesStore } from '@/stores/movies'
 import { storeToRefs } from 'pinia'
-
 const store = useMoviesStore()
 const { movieList } = storeToRefs(store)
-const { addToBookmarkList } = store
 
-console.log(movieList)
 const movies = computed(() => {
   return movieList.value.filter((movie) => {
     return movie.category === 'Movie'

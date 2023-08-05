@@ -8,7 +8,7 @@ export const useMoviesStore = defineStore('movies', () => {
   const bookmarkedMovies = ref([])
   const bookmarkedSeries = ref([])
   const searchList = ref([])
-  
+
   function BOOKMARK_MOVIE() {
     isBookmarked.value = true
   }

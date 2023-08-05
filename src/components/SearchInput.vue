@@ -48,7 +48,6 @@ function search() {
   searchList.value = myArray.value.filter((item) => {
     return item.title.toLowerCase().includes(searchText.value.toLowerCase())
   })
-  console.log(searchText.value, searchList)
 }
 
 defineProps({
