@@ -28,7 +28,7 @@ input {
 }
 
 .home-inner {
-  @apply p-4 overflow-x-hidden;
+  @apply p-4 overflow-x-scroll;
 }
 
 article .movie {
