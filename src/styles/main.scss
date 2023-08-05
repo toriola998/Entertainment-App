@@ -58,16 +58,20 @@ article .movie {
 
     &:hover {
       background: #fff;
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
 
       &:hover svg path {
         stroke: #000;
-        transition: all .6s ease-in-out;
+        transition: all 0.6s ease-in-out;
       }
     }
     // svg:active path {
     //   fill: #fff;
     // }
+  }
+
+  .bookmarked-movie {
+    fill: #fff;
   }
 }
 
