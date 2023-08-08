@@ -19,9 +19,21 @@ export const useMoviesStore = defineStore('movies', () => {
 
     if (!movie && payload.category === 'Movie') {
       bookmarkedMovies.value.push(payload)
-    } else if (!tvSeries && payload.category === 'TV Series') {
+    } else if (movie) {
+      let index = bookmarkedMovies.value.findIndex((item) => item === payload) // Find the index of the item
+      if (index !== -1) {
+        bookmarkedMovies.value.splice(index, 1) // Remove the item at the found index
+      }
+    }
+
+    if (!tvSeries && payload.category === 'TV Series') {
       bookmarkedSeries.value.push(payload)
-    } else return
+    } else if (tvSeries) {
+      let index = bookmarkedSeries.value.findIndex((item) => item === payload) // Find the index of the item
+      if (index !== -1) {
+        bookmarkedSeries.value.splice(index, 1) // Remove the item at the found index
+      }
+    }
   }
 
   return {
