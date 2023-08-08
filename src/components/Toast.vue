@@ -12,4 +12,17 @@ const store = useMoviesStore()
 const { info } = storeToRefs(store)
 </script>
 
-<style scoped></style>
+<style scoped>
+.toast {
+  animation: mymove 0.5s ease-in-out;
+}
+
+@keyframes mymove {
+  from {
+    right: -500px;
+  }
+  to {
+    right: 0px;
+  }
+}
+</style>

@@ -16,9 +16,9 @@ export const useMoviesStore = defineStore('movies', () => {
     let tvSeries = bookmarkedSeries.value.find((item) => item.title === payload.title)
 
     showToast.value = true
-    // setTimeout(() => {
-    //   showToast.value = false;
-    // }, 2000);
+    setTimeout(() => {
+      showToast.value = false
+    }, 4000)
 
     if (!movie && payload.category === 'Movie') {
       bookmarkedMovies.value.push(payload)
