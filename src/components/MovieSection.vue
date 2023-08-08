@@ -7,7 +7,7 @@
         v-for="movie in movieList"
         :key="movie.title"
         :movie="movie"
-        @bookmark="addToBookmarkList(movie)"
+        @bookmark="bookmarkMovie(movie)"
       />
     </div>
   </section>
@@ -18,7 +18,7 @@ import Movie from './Movie.vue'
 import { useMoviesStore } from '@/stores/movies'
 
 const store = useMoviesStore()
-const { addToBookmarkList } = store
+const { bookmarkMovie } = store
 
 defineProps({
   ariaLabel: {

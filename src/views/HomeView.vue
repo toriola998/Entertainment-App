@@ -8,7 +8,7 @@
           <Trending
             v-if="movie.isTrending === true"
             :movie="movie"
-            @bookmark="addToBookmarkList(movie)"
+            @bookmark="bookmarkMovie(movie)"
           />
         </div>
       </div>
@@ -31,7 +31,7 @@ import { storeToRefs } from 'pinia'
 
 const store = useMoviesStore()
 const { movieList } = storeToRefs(store)
-const { addToBookmarkList } = store
+const { bookmarkMovie } = store
 </script>
 
 <style scoped lang="scss">
