@@ -1,7 +1,7 @@
 <template>
   <article class="trending relative mt-8 mr-4">
     <img :src="imageUrl" alt="" class="movie max-w-[unset] h-[200px] md:h-[230px] w-[450px]" />
-    <button @click="$emit('bookmark')">
+    <button @click="$emit('bookmark')" aria-label="Toggle movies in bookmark list">
       <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
         <path
           d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z"

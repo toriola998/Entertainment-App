@@ -1,7 +1,10 @@
 <template>
   <div class="home">
     <div>
-      <The-nav-bar />
+      <div>
+        <The-nav-bar />
+        <h1 aria-hidden="true">A one stop site to get list of movies</h1>
+      </div>
       <Router-view />
     </div>
   </div>
